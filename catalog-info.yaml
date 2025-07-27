@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: python-ptzhwgfs-gitops
+  description: This is GitOps manifest for python-ptzhwgfs   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=python-ptzhwgfs
+    backstage.io/kubernetes-id: python-ptzhwgfs 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: python-ptzhwgfs
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:python-ptzhwgfs
